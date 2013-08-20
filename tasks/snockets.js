@@ -1,6 +1,7 @@
 var Snockets = require('snockets'),
 	fs = require('fs'),
-  path = require('path');
+  path = require('path'),
+  _ = require('underscore');
 
 /*
  * grunt-snockets
@@ -28,9 +29,11 @@ module.exports = function(grunt) {
       return false;
     }
 
+    var snocket_options = _.defaults(this.data.snocket_options || {}, {async: false});
+
     if (fs.existsSync(path.resolve(this.data.src))) {
       try {
-        js = snockets.getConcatenation(this.data.src, {async: false});
+        js = snockets.getConcatenation(this.data.src, snocket_options);
 
         if (this.data.banner)
           js = this.data.banner + '\n' + js;
