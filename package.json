@@ -30,7 +30,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-	"snockets": ""
+	"snockets": "git://github.com/magec/snockets"
   },
   "devDependencies": {
     "grunt": "~0.4.0",
